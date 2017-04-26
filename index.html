@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animation on canvas</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas" width="500" height="300"></canvas>
+
+<img src="" id="img"/>
+
+
+
+<script  type="text/javascript">
+    var context = document.getElementById('canvas').getContext('2d');
+    var width = 223, heigth = 90;///191 на 230
+    var image = document.getElementById('img');
+
+
+
+    var i = 1;
+    setInterval(function () {
+        drawImage('img.png', i);
+        i+= 1;
+    }, 500);
+
+
+
+
+    function drawImage(img, num) {
+        num = num ? num-1 : 0;
+
+        image.onload = function () {
+            width = image.width;
+            height = image.height;
+
+            context.drawImage(image, 75*num, 0, 75, 90, 0, 0, 75, 90);
+
+            image.style.display = 'none';
+        }
+        image.src= img;
+    }
+    
+    
+
+
+
+
+</script>
+</body>
+</html>
